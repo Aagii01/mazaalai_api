@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: .dockerfile
-    image: github.com/rromulos/gorestapi_database
+    image: gorestapi_database
     container_name: gorestapi_database
     restart: unless-stopped
     tty: true

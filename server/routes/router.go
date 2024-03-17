@@ -1,13 +1,18 @@
 package routes
 
 import (
+	"go-rest-api/controllers"
+
 	"github.com/gin-gonic/gin"
-	"github.com/rromulos/go-rest-api/controllers"
 )
 
 func ConfigRoutes(router *gin.Engine) *gin.Engine {
 	main := router.Group("api/v1")
 	{
+		login := main.Group("auth")
+		{
+			login.POST("/login", controllers.Login)
+		}
 		users := main.Group("users")
 		{
 			users.GET("/:id", controllers.GetUser)
@@ -16,10 +21,10 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 			users.DELETE("/:id", controllers.DeleteUser)
 			users.PUT("/", controllers.UpdateUser)
 		}
-
-		login := main.Group("login")
+		order := main.Group("order")
 		{
-			login.POST("/", controllers.Login)
+			order.POST("/", controllers.CreateOrder)
+			order.GET("/", controllers.GetAllOrders)
 		}
 	}
 

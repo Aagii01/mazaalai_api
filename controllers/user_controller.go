@@ -3,9 +3,10 @@ package controllers
 import (
 	"strconv"
 
+	"go-rest-api/database"
+	"go-rest-api/models"
+
 	"github.com/gin-gonic/gin"
-	"github.com/rromulos/go-rest-api/database"
-	"github.com/rromulos/go-rest-api/models"
 )
 
 func GetUser(c *gin.Context) {
