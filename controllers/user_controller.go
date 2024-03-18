@@ -5,6 +5,7 @@ import (
 
 	"go-rest-api/database"
 	"go-rest-api/models"
+	"go-rest-api/utils"
 
 	"github.com/gin-gonic/gin"
 )
@@ -52,8 +53,7 @@ func CreateUser(c *gin.Context) {
 		})
 		return
 	}
-
-	c.JSON(200, p)
+	utils.RespSuccess(nil, "", c)
 }
 
 func GetAllUsers(c *gin.Context) {

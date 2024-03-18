@@ -1,6 +1,8 @@
 package models
 
-import "time"
+import (
+	"time"
+)
 
 type User struct {
 	ID          uint      `json:"id" gorm:"primaryKey"`
@@ -18,6 +20,7 @@ type Order struct {
 	ID          uint      `json:"id" gorm:"primaryKey"`
 	TrackCode   string    `json:"track_code"`
 	Status      string    `json:"status"`
+	Price       int       `json:"price"`
 	CreatedAt   time.Time // Automatically managed by GORM for creation time
 	UpdatedAt   time.Time // Automatically managed by GORM for update time
 	Description string    `json:"description"`
