@@ -25,6 +25,6 @@ func Login(c *gin.Context) {
 		utils.Respfailed("Нууц үг эсвэл мейл хаяг буруу байна !!! ", c, "no user")
 		return
 	}
-	token := "mytoken jwt"
+	token := userModel.Type
 	utils.RespSuccess(token, "", c)
 }

@@ -26,6 +26,7 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 			order.POST("/", controllers.CreateOrder)
 			order.GET("/", controllers.GetAllOrders)
 			order.DELETE("/", controllers.DeleteOrders)
+			order.PUT("/", controllers.UpdateOrder)
 		}
 	}
 

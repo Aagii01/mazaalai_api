@@ -69,3 +69,22 @@ func DeleteOrders(c *gin.Context) {
 	}
 	utils.RespSuccess(p, "", c)
 }
+
+func UpdateOrder(c *gin.Context) {
+	db := database.GetDatabase()
+	var p models.Order
+	err := c.ShouldBindJSON(&p)
+	if err != nil {
+		utils.Respfailed("json хөрвүүлэх үед алдаа гарлаа", c, err.Error())
+		return
+	}
+
+	err = db.Save(&p).Error
+
+	if err != nil {
+		utils.Respfailed("Халгалах үйлдэл амжилтгүй !!! ", c, err.Error())
+		return
+	}
+
+	utils.RespSuccess(p, "", c)
+}
